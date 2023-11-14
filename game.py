@@ -11,3 +11,9 @@ BLACK = (0, 0, 0)
 
 # Initialisation de la grille
 grid = np.zeros((ROWS, COLS))
+
+# Initialisation de la grille avec quelques cellules vivantes
+grid = np.zeros((ROWS, COLS))
+grid[2, 3:6] = 1
+grid[4, 2:5] = 1
+grid[5, 4] = 1
