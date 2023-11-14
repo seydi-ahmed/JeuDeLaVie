@@ -12,6 +12,20 @@ BLACK = (0, 0, 0)
 # Initialisation de la grille
 grid = np.zeros((ROWS, COLS))
 
+# Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
+def update_grid(grid):
+    new_grid = grid.copy()
+    for i in range(1, ROWS):
+        for j in range(1, COLS):
+            total_neighbors = np.sum(grid[i:i+1, j:j+1]) - grid[i, j]
+            if grid[i, j] == 1:
+                if total_neighbors < 2 or total_neighbors > 3:
+                    new_grid[i, j] = 0
+            else:
+                if total_neighbors == 3:
+                    new_grid[i, j] = 1
+    return new_grid
+
 ################# INITIALISATION DEBUT ###########################
 
 # Initialisation de la grille avec quelques cellules vivantes
