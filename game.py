@@ -17,3 +17,6 @@ grid = np.zeros((ROWS, COLS))
 grid[2, 3:6] = 1
 grid[4, 2:5] = 1
 grid[5, 4] = 1
+
+# Initialisation de la grille avec quelques cellules vivantes au hasard
+grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
