@@ -15,8 +15,8 @@ grid = np.zeros((ROWS, COLS))
 # Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
 def update_grid(grid):
     new_grid = grid.copy()
-    for i in range(1, ROWS):
-        for j in range(1, COLS):
+    for i in range(1, ROWS-1):
+        for j in range(1, COLS-1):
             total_neighbors = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j]
             if grid[i, j] == 1:
                 if total_neighbors < 2 or total_neighbors > 3:
