@@ -38,3 +38,42 @@ def update_grid(grid):
 grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
 
 ################# INITIALISATION FIN #############################
+
+# Fonction principale pour exécuter le Jeu de la Vie
+def run_game():
+    global grid
+    pygame.init()
+    window = pygame.display.set_mode((WIDTH, HEIGHT))
+    pygame.display.set_caption("Jeu de la Vie - Conway")
+
+    clock = pygame.time.Clock()
+
+    running = True
+    paused = False
+
+    while running:
+        window.fill(WHITE)
+
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_SPACE:
+                    paused = not paused
+
+        if not paused:
+            grid = update_grid(grid)
+
+        for i in range(ROWS):
+            for j in range(COLS):
+                color = BLACK if grid[i, j] == 1 else WHITE
+                pygame.draw.rect(window, color, (j * (WIDTH // COLS), i * (HEIGHT // ROWS), WIDTH // COLS, HEIGHT // ROWS))
+
+        pygame.display.flip()
+        clock.tick(5)
+
+    pygame.quit()
+
+
+if __name__ == "__main__":
+    run_game()
