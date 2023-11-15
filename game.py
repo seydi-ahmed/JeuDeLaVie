@@ -55,9 +55,11 @@ def run_game():
                 running = False
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
+                    if paused:
+                        timer_start = time.time() - paused_time
+                    else:
+                        paused_time = time.time() - timer_start
                     paused = not paused
-                    if not paused and timer_start is None:
-                        timer_start = time.time()  # Démarrer le timer lorsque le jeu reprend
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pressed = True
@@ -89,18 +91,18 @@ def run_game():
                 pygame.draw.line(window, BLACK, (0, i * (HEIGHT // ROWS)), (WIDTH, i * (HEIGHT // ROWS)), 1)
 
         # Dessiner le rectangle à l'extérieur de la grille
-        pygame.draw.rect(window, GRAY, (WIDTH, 0, 600, HEIGHT))
+        pygame.draw.rect(window, GRAY, (WIDTH, 0, 200, HEIGHT))
 
         # Afficher le timer
-        if timer_start is not None and not paused:
-            elapsed_time = int(time.time() - timer_start) + paused_time
+        if timer_start is not None:
+            elapsed_time = int(time.time() - timer_start) if not paused else int(paused_time)
         else:
-            elapsed_time = paused_time
-        timer_text = font.render(f"Temp: {elapsed_time}s", True, BLACK)
+            elapsed_time = int(paused_time)
+        timer_text = font.render(f"Temps: {elapsed_time}s", True, BLACK)
         window.blit(timer_text, (WIDTH + 10, 10))
 
         # Afficher le nombre de générations
-        generation_text = font.render(f"Génération: {generations}", True, BLACK)
+        generation_text = font.render(f"Générations: {generations}", True, BLACK)
         window.blit(generation_text, (WIDTH + 10, 50))
 
         pygame.display.flip()
