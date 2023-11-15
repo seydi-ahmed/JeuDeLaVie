@@ -10,6 +10,7 @@ ROWS, COLS = 40, 40
 # Couleurs
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+GRAY = (200, 200, 200)
 
 ########################### INITIALISATION DEBUT ###########################
 
@@ -45,10 +46,13 @@ def update_grid(grid):
 def run_game():
     global grid
     pygame.init()
-    window = pygame.display.set_mode((WIDTH, HEIGHT))
+    window = pygame.display.set_mode((WIDTH + 200, HEIGHT))
     pygame.display.set_caption("Jeu de la Vie - John Conway")
 
     clock = pygame.time.Clock()
+
+    font = pygame.font.Font(None, 36)
+    timer_start = None
 
     running = True
     paused = True  # Démarrez en mode pause
@@ -63,6 +67,9 @@ def run_game():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     paused = not paused
+                    if not paused:
+                        timer_start = time.time()  # Démarrer le timer lorsque le jeu reprend
+
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pressed = True
             elif event.type == pygame.MOUSEBUTTONUP:
@@ -90,6 +97,18 @@ def run_game():
 
                 # Dessine des lignes de séparation horizontales
                 pygame.draw.line(window, BLACK, (0, i * (HEIGHT // ROWS)), (WIDTH, i * (HEIGHT // ROWS)), 1)
+
+        # Dessiner le rectangle à l'extérieur de la grille
+        pygame.draw.rect(window, GRAY, (WIDTH, 0, 200, HEIGHT))
+
+        # Afficher le timer
+        elapsed_time = int(time.time() - timer_start) if timer_start else 0
+        timer_text = font.render(f"Temps: {elapsed_time}s", True, BLACK)
+        window.blit(timer_text, (WIDTH + 10, 10))
+
+        # Afficher le nombre de générations
+        generation_text = font.render(f"Générations: {elapsed_time}", True, BLACK)
+        window.blit(generation_text, (WIDTH + 10, 50))
 
         pygame.display.flip()
         clock.tick(5)
