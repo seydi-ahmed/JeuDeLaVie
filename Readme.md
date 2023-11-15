@@ -15,7 +15,7 @@ Le Jeu de la Vie est un automate cellulaire créé par le mathématicien John Co
 - **Logiciels:** Assurez-vous d'installer Python et Pygame sur votre machine.
 - **Lancer le Jeu:** Exécutez le script Python avec `python3 game.py`.
 - **Jouer - Pause:** Appuyez sur la barre d'espace pour commencer, mettre en pause ou reprendre le jeu.
-- **Accélérer ou ralentir:** Allez à la ligne 81 qui contient "clock.tick(5)". Selon vos goûts, augmentez le "5" si le jeu est lent, diminuez au cas contraire.
+- **Accélérer ou ralentir:** Allez à la ligne qui contient "clock.tick(5)". Selon vos goûts, augmentez le "5" si le jeu est lent, diminuez au cas contraire.
 - **Quitter:** Fermez la fenêtre du jeu.
 
 ## Configuration Initiale (commentez une des initialisations pour utiliser celle que vous voulez)

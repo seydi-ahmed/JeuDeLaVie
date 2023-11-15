@@ -12,8 +12,21 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (200, 200, 200)
 
+########################### INITIALISATION DEBUT ###########################
+
+# Initialisation de la grille avec quelques cellules vivantes manuellement
+# grid = np.zeros((ROWS, COLS))
+# grid[2, 3:6] = 1
+# grid[4, 2:5] = 1
+# grid[5, 4] = 1
+
+# Utilisez une des fonctions d'initialisation du module tours
+grid = np.zeros((ROWS, COLS))
+
 # Initialisation de la grille avec quelques cellules vivantes au hasard
-grid = random_grid()
+# grid = random_grid()
+
+########################### INITIALISATION FIN #############################
 
 # Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
 def update_grid(grid):
