@@ -34,6 +34,12 @@ la grille est initialisée au hasard.
 grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
 ```
 
+### Initialisation sur la grille:
+Mettez ce code suivante et appuyez sur une case pour la mettre en noir (lui donner vie)
+```python
+grid = np.zeros((ROWS, COLS))
+```
+
 ### Configurations:
 les configurations standards se trouvent dans tours.py
 ```python
