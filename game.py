@@ -6,8 +6,8 @@ WIDTH, HEIGHT = 800, 800
 ROWS, COLS = 40, 40
 
 # Couleurs
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
+WHITE = (0, 0, 0)
+BLACK = (255, 255, 255)
 
 # Initialisation de la grille
 grid = np.zeros((ROWS, COLS))
@@ -26,9 +26,9 @@ def update_grid(grid):
                     new_grid[i, j] = 1
     return new_grid
 
-################# INITIALISATION DEBUT ###########################
+########################### INITIALISATION DEBUT ###########################
 
-# Initialisation de la grille avec quelques cellules vivantes
+# Initialisation de la grille avec quelques cellules vivantes manuellement
 # grid = np.zeros((ROWS, COLS))
 # grid[2, 3:6] = 1
 # grid[4, 2:5] = 1
@@ -37,7 +37,7 @@ def update_grid(grid):
 # Initialisation de la grille avec quelques cellules vivantes au hasard
 grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
 
-################# INITIALISATION FIN #############################
+########################### INITIALISATION FIN #############################
 
 # Fonction principale pour exécuter le Jeu de la Vie
 def run_game():
