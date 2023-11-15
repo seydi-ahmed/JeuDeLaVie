@@ -1,5 +1,6 @@
 import pygame
 import numpy as np
+from tours import *
 
 # Dimensions de la grille
 WIDTH, HEIGHT = 800, 800
