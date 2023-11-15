@@ -12,21 +12,8 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 GRAY = (200, 200, 200)
 
-########################### INITIALISATION DEBUT ###########################
-
-# Initialisation de la grille avec quelques cellules vivantes manuellement
-# grid = np.zeros((ROWS, COLS))
-# grid[2, 3:6] = 1
-# grid[4, 2:5] = 1
-# grid[5, 4] = 1
-
-# Utilisez une des fonctions d'initialisation du module tours
-# grid = np.zeros((ROWS, COLS))
-
 # Initialisation de la grille avec quelques cellules vivantes au hasard
 grid = random_grid()
-
-########################### INITIALISATION FIN #############################
 
 # Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
 def update_grid(grid):
@@ -53,6 +40,8 @@ def run_game():
 
     font = pygame.font.Font(None, 36)
     timer_start = None
+    paused_time = 0
+    generations = 0
 
     running = True
     paused = True  # Démarrez en mode pause
@@ -77,6 +66,7 @@ def run_game():
 
         if not paused:
             grid = update_grid(grid)
+            generations += 1
 
         # Gestion du clic de la souris pour changer l'état des cellules
         if mouse_pressed:
@@ -102,12 +92,12 @@ def run_game():
         pygame.draw.rect(window, GRAY, (WIDTH, 0, 200, HEIGHT))
 
         # Afficher le timer
-        elapsed_time = int(time.time() - timer_start) if timer_start else 0
+        elapsed_time = int(time.time() - timer_start) if timer_start and not paused else paused_time
         timer_text = font.render(f"Temps: {elapsed_time}s", True, BLACK)
         window.blit(timer_text, (WIDTH + 10, 10))
 
         # Afficher le nombre de générations
-        generation_text = font.render(f"Générations: {elapsed_time}", True, BLACK)
+        generation_text = font.render(f"Générations: {generations}", True, BLACK)
         window.blit(generation_text, (WIDTH + 10, 50))
 
         pygame.display.flip()
