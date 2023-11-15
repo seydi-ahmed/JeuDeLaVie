@@ -14,7 +14,7 @@ Le Jeu de la Vie est un automate cellulaire créé par le mathématicien John Co
 - **Cloner le repertoire:** `git clone https://github.com/seydi-ahmed/JeuDeLaVie.git`.
 - **Logiciels:** Assurez-vous d'installer Python et Pygame sur votre machine.
 - **Lancer le Jeu:** Exécutez le script Python avec `python3 game.py`.
-- **Pause:** Appuyez sur la barre d'espace pour mettre en pause ou reprendre le jeu.
+- **Jouer - Pause:** Appuyez sur la barre d'espace pour commencer, mettre en pause ou reprendre le jeu.
 - **Accélérer ou ralentir:** Allez à la ligne 81 qui contient "clock.tick(5)". Selon vos goûts, augmentez le "5" si le jeu est lent, diminuez au cas contraire.
 - **Quitter:** Fermez la fenêtre du jeu.
 
@@ -35,7 +35,7 @@ grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
 ```
 
 ### Initialisation sur la grille:
-Mettez ce code suivante et appuyez sur une case pour la mettre en noir (lui donner vie)
+La grille est composée de cellules mortes appuyez sur une case pour la mettre en noire (lui donner vie)
 ```python
 grid = np.zeros((ROWS, COLS))
 ```
