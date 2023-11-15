@@ -44,7 +44,7 @@ def run_game():
     global grid
     pygame.init()
     window = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("Jeu de la Vie - Conway")
+    pygame.display.set_caption("Jeu de la Vie - John Conway")
 
     clock = pygame.time.Clock()
 
