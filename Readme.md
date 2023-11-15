@@ -29,7 +29,7 @@ grid[5, 4] = 1
 ```
 
 ### Initialisation au hasard:
-la grille est initialisée au hasard
+la grille est initialisée au hasard.
 ```python
 grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
 ```
