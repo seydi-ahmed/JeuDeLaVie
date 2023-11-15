@@ -1,7 +1,7 @@
 # Jeu de la Vie - John Conway
 
 ## Description:
-Une implémentation simple du Jeu de la Vie de Conway en utilisant Python et Pygame.
+Une implémentation simple du "Jeu de la Vie" de Conway en utilisant Python et Pygame.
 
 ## Règles du Jeu de la Vie:
 Le Jeu de la Vie est un automate cellulaire créé par le mathématicien John Conway. Il se déroule sur une grille bidimensionnelle infinie et évolue au fil du temps en fonction d'un ensemble de règles simples. Les règles sont les suivantes :
@@ -69,6 +69,7 @@ Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonc
 ### Taille de la grille:
 Juste aprés avoir importé les modules à utiliser vous avez les dimensions de la grille avec:
 ```
+# Dimensions de la grille
 WIDTH, HEIGHT = 800, 800
 ROWS, COLS = 40, 40
 ```
@@ -83,7 +84,7 @@ Augmentez ou diminuez la grille selon vos préférences
 - **Github:** https://github.com/seydi-ahmed
 - **Twitter:** https://twitter.com/SeydiAhmed007
 
-## TUTOS YOUTUBE SUIVIS:
+## Tutos youtube suivis:
 - **ScienceEtonnante:** https://www.youtube.com/watch?v=S-W0NX97DB0&t=238s
 - **Rational Animations:** https://www.youtube.com/watch?v=C2vgICfQawE
 - **Numberphile:** https://www.youtube.com/watch?v=R9Plq-D1gEk
