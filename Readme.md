@@ -1,7 +1,7 @@
 # Jeu de la Vie - John Conway
 
 ## Description:
-Une implémentation simple du "Jeu de la Vie" de Conway en utilisant Python et Pygame.
+Une implémentation simple du "Jeu de la Vie" de John Conway en utilisant Python et Pygame.
 
 ## Règles du Jeu de la Vie:
 Le Jeu de la Vie est un automate cellulaire créé par le mathématicien John Conway. Il se déroule sur une grille bidimensionnelle infinie et évolue au fil du temps en fonction d'un ensemble de règles simples. Les règles sont les suivantes :
