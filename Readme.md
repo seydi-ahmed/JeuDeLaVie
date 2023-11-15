@@ -34,6 +34,12 @@ la grille est initialisée au hasard.
 grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
 ```
 
+### Configurations:
+les configurations standards se trouvent dans tours.py
+```python
+Block, Bee-hive, loaf, boat, Tub, Blinker(period 2), Toad(period 2), Beacon(period 2), Pulsar(period 3), Penta-decathlon(period 15), Glider, Light-weight spaceship(LWSS), Middle-weight spaceship(MWSS), Heavy-weight spaceship(HWSS), The R-pentomino, Diehard, Acorn, Gosper glider gun, Simkin glider gun.
+Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonction>"
+```
 
 ## Développeur:
 - **Prénom Nom:** Mouhamed Diouf
