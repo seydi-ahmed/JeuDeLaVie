@@ -23,15 +23,15 @@ BLACK = (0, 0, 0)
 # grid = np.zeros((ROWS, COLS))
 
 # Initialisation de la grille avec quelques cellules vivantes au hasard
-grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
+grid = random_grid()
 
 ########################### INITIALISATION FIN #############################
 
 # Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
 def update_grid(grid):
     new_grid = grid.copy()
-    for i in range(1, ROWS-1):
-        for j in range(1, COLS-1):
+    for i in range(ROWS):
+        for j in range(COLS):
             total_neighbors = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j]
             if grid[i, j] == 1:
                 if total_neighbors < 2 or total_neighbors > 3:
