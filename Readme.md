@@ -15,7 +15,7 @@ Le Jeu de la Vie est un automate cellulaire créé par le mathématicien John Co
 - **Logiciels:** Assurez-vous d'installer Python et Pygame sur votre machine.
 - **Lancer le Jeu:** Exécutez le script Python avec `python3 game.py`.
 - **Jouer - Pause:** Appuyez sur la barre d'espace pour commencer, mettre en pause ou reprendre le jeu.
-- **Accélérer ou ralentir:** Allez à la ligne qui contient "clock.tick(5)". Selon vos goûts, augmentez le "5" si le jeu est lent, diminuez au cas contraire.
+- **Accélérer ou ralentir:** Allez à la ligne qui contient `clock.tick(5)`qui est l'avant derniere ligne de la fonction `run_game()`. Selon vos goûts, augmentez ou diminuez le `5` pour accélerer ou ralentir le jeu.
 - **Quitter:** Fermez la fenêtre du jeu.
 
 ## Configuration Initiale (commentez une des initialisations pour utiliser celle que vous voulez)
@@ -44,6 +44,7 @@ grid = np.zeros((ROWS, COLS))
 les configurations standards se trouvent dans tours.py
 ```python
 Block, Bee-hive, loaf, boat, Tub, Blinker(period 2), Toad(period 2), Beacon(period 2), Pulsar(period 3), Penta-decathlon(period 15), Glider, Light-weight spaceship(LWSS), Middle-weight spaceship(MWSS), Heavy-weight spaceship(HWSS), The R-pentomino, Diehard, Acorn, Gosper glider gun, Simkin glider gun.
+
 Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonction>"
 ```
 
@@ -53,3 +54,4 @@ Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonc
 - **Email:** seydiahmedelcheikh@gmail.com
 - **Numéro de téléphone:** +221776221681
 - **LinkedIn:** https://www.linkedin.com/in/mouhamed-diouf-435207174/
+- **Github:** https://github.com/seydi-ahmed
