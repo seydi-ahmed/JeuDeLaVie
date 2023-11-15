@@ -21,10 +21,10 @@ GRAY = (200, 200, 200)
 # grid[5, 4] = 1
 
 # Utilisez une des fonctions d'initialisation du module tours
-grid = np.zeros((ROWS, COLS))
+# grid = np.zeros((ROWS, COLS))
 
 # Initialisation de la grille avec quelques cellules vivantes au hasard
-# grid = random_grid()
+grid = random_grid()
 
 ########################### INITIALISATION FIN #############################
 
