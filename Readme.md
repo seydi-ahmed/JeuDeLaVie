@@ -48,7 +48,7 @@ Block, Bee-hive, loaf, boat, Tub, Blinker(period 2), Toad(period 2), Beacon(peri
 Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonction>"
 ```
 
-## Développeur:
+## Coordonnées du développeur:
 - **Prénom Nom:** Mouhamed Diouf
 - **Ecole:** Zone01 Dakar
 - **Email:** seydiahmedelcheikh@gmail.com
