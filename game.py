@@ -1,5 +1,6 @@
 import pygame
 import numpy as np
+import time
 from tours import *
 
 # Dimensions de la grille
@@ -10,23 +11,6 @@ ROWS, COLS = 40, 40
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
-# Initialisation de la grille
-grid = np.zeros((ROWS, COLS))
-
-# Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
-def update_grid(grid):
-    new_grid = grid.copy()
-    for i in range(ROWS):
-        for j in range(COLS):
-            total_neighbors = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j]
-            if grid[i, j] == 1:
-                if total_neighbors < 2 or total_neighbors > 3:
-                    new_grid[i, j] = 0
-            else:
-                if total_neighbors == 3:
-                    new_grid[i, j] = 1
-    return new_grid
-
 ########################### INITIALISATION DEBUT ###########################
 
 # Initialisation de la grille avec quelques cellules vivantes manuellement
@@ -35,10 +19,27 @@ def update_grid(grid):
 # grid[4, 2:5] = 1
 # grid[5, 4] = 1
 
+# Utilisez une des fonctions d'initialisation du module tours
+# grid = np.zeros((ROWS, COLS))
+
 # Initialisation de la grille avec quelques cellules vivantes au hasard
-grid = random_grid()
+grid = np.random.choice([0, 1], size=(ROWS, COLS), p=[0.7, 0.3])
 
 ########################### INITIALISATION FIN #############################
+
+# Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
+def update_grid(grid):
+    new_grid = grid.copy()
+    for i in range(1, ROWS-1):
+        for j in range(1, COLS-1):
+            total_neighbors = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j]
+            if grid[i, j] == 1:
+                if total_neighbors < 2 or total_neighbors > 3:
+                    new_grid[i, j] = 0
+            else:
+                if total_neighbors == 3:
+                    new_grid[i, j] = 1
+    return new_grid
 
 # Fonction principale pour exécuter le Jeu de la Vie
 def run_game():
@@ -50,7 +51,8 @@ def run_game():
     clock = pygame.time.Clock()
 
     running = True
-    paused = False
+    paused = True  # Démarrez en mode pause
+    mouse_pressed = False
 
     while running:
         window.fill(WHITE)
@@ -61,10 +63,22 @@ def run_game():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_SPACE:
                     paused = not paused
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pressed = True
+            elif event.type == pygame.MOUSEBUTTONUP:
+                mouse_pressed = False
 
         if not paused:
             grid = update_grid(grid)
 
+        # Gestion du clic de la souris pour changer l'état des cellules
+        if mouse_pressed:
+            x, y = pygame.mouse.get_pos()
+            col = x // (WIDTH // COLS)
+            row = y // (HEIGHT // ROWS)
+            grid[row, col] = 1
+
+        # Dessin de la grille
         for i in range(ROWS):
             for j in range(COLS):
                 color = BLACK if grid[i, j] == 1 else WHITE
@@ -76,7 +90,6 @@ def run_game():
 
                 # Dessine des lignes de séparation horizontales
                 pygame.draw.line(window, BLACK, (0, i * (HEIGHT // ROWS)), (WIDTH, i * (HEIGHT // ROWS)), 1)
-
 
         pygame.display.flip()
         clock.tick(5)
