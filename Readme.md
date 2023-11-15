@@ -11,8 +11,26 @@ Le Jeu de la Vie est un automate cellulaire créé par le mathématicien John Co
 3. **Mort:** Une cellule vivante avec moins de 2 voisins vivants meurt d'isolement, et avec plus de 3 voisins vivants meurt de surpopulation.
 
 ## Comment Jouer:
-- **Cloner le repertoire:** `git clone https://github.com/seydi-ahmed/JeuDeLaVie.git`.
+- **Cloner le repertoire:** `git clone https://github.com/seydi-ahmed/JeuDeLaVie.git`
 - **Logiciels:** Assurez-vous d'installer Python et Pygame sur votre machine.
+    1) Windows:
+        ```
+        a) Python: https://www.python.org/downloads/
+        b) Pygame: pip install pygame
+    2) Ubuntu:
+        ```
+        a) Python: les distributions de Ubuntu viennent avec pyton préinstallé
+        Installer les dépendances:
+        sudo apt-get update
+        sudo apt-get install python3-dev python3-pip
+        sudo apt-get install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+        b) Pygame: pip3 install pygame
+    3) Mac Os:
+        ```
+        a) Python: macOS est livré avec Python préinstallé
+        b) Pygame: pip3 install pygame
+    ```
+    Veuillez noter que l'utilisation de pip3 au lieu de pip est courante pour les installations Python 3.
 - **Lancer le Jeu:** Exécutez le script Python avec `python3 game.py`.
 - **Jouer - Pause:** Appuyez sur la barre d'espace pour commencer, mettre en pause ou reprendre le jeu.
 - **Accélérer ou ralentir:** Allez à la ligne qui contient `clock.tick(5)`qui est l'avant derniere ligne de la fonction `run_game()`. Selon vos goûts, augmentez ou diminuez le `5` pour accélerer ou ralentir le jeu.
