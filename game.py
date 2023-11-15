@@ -6,8 +6,8 @@ WIDTH, HEIGHT = 800, 800
 ROWS, COLS = 40, 40
 
 # Couleurs
-WHITE = (0, 0, 0)
-BLACK = (255, 255, 255)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
 
 # Initialisation de la grille
 grid = np.zeros((ROWS, COLS))
@@ -67,10 +67,17 @@ def run_game():
         for i in range(ROWS):
             for j in range(COLS):
                 color = BLACK if grid[i, j] == 1 else WHITE
-                pygame.draw.rect(window, color, (j * (WIDTH // COLS), i * (HEIGHT // ROWS), WIDTH // COLS, HEIGHT // ROWS))
+                rect = pygame.Rect(j * (WIDTH // COLS), i * (HEIGHT // ROWS), WIDTH // COLS, HEIGHT // ROWS)
+                pygame.draw.rect(window, color, rect)
+
+                # Dessine des lignes de séparation verticales
+                pygame.draw.line(window, BLACK, (j * (WIDTH // COLS), 0), (j * (WIDTH // COLS), HEIGHT), 1)
+
+                # Dessine des lignes de séparation horizontales
+                pygame.draw.line(window, BLACK, (0, i * (HEIGHT // ROWS)), (WIDTH, i * (HEIGHT // ROWS)), 1)
+
 
         pygame.display.flip()
-        
         clock.tick(5)
 
     pygame.quit()
