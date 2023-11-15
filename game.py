@@ -22,7 +22,7 @@ GRAY = (200, 200, 200)
 # grid[4, 2:5] = 1
 # grid[5, 4] = 1
 
-# Initialisation avec zéro cases noires. A vous de définir votre début de jeu
+# Initialisation avec zéro case noire. A vous de définir votre début de jeu
 # grid = np.zeros((ROWS, COLS))
 
 # Initialisation de la grille avec quelques cellules vivantes au hasard
@@ -32,14 +32,14 @@ grid = random_grid()
 
 # Fonction pour mettre à jour la grille selon les règles du Jeu de la Vie
 def update_grid(grid):
-    new_grid = grid.copy()
-    for i in range(ROWS):
-        for j in range(COLS):
-            total_neighbors = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j]
-            if grid[i, j] == 1:
+    new_grid = grid.copy() # Copier la grille pour ne pas toucher à celle du jeu
+    for i in range(ROWS): # Parcourir les lignes
+        for j in range(COLS): # Parcourir les colonnes
+            total_neighbors = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j] # Stocker les voisins en excluant la cellule elle-même
+            if grid[i, j] == 1: # Cellule vivante avec moins de 2 ou plus de 3 voisins meurent
                 if total_neighbors < 2 or total_neighbors > 3:
                     new_grid[i, j] = 0
-            else:
+            else: # Cellule morte avec 3 voisins prend vie
                 if total_neighbors == 3:
                     new_grid[i, j] = 1
     return new_grid
