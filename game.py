@@ -104,19 +104,27 @@ def run_game():
                 pygame.draw.line(window, BLACK, (0, i * (HEIGHT // ROWS)), (WIDTH, i * (HEIGHT // ROWS)), 1)
 
         # Dessiner le rectangle à l'extérieur de la grille
-        pygame.draw.rect(window, GRAY, (WIDTH, 0, 200, HEIGHT))
+        pygame.draw.rect(window, GRAY, (WIDTH, 0, 1000, HEIGHT))
 
         # Afficher le timer
         if timer_start is not None:
             elapsed_time = int(time.time() - timer_start) if not paused else int(paused_time)
         else:
             elapsed_time = int(paused_time)
-        timer_text = font.render(f"Temps: {elapsed_time}s", True, BLACK)
+        timer_text = font.render(f"T: {elapsed_time}s", True, BLACK)
         window.blit(timer_text, (WIDTH + 10, 10))
 
         # Afficher le nombre de générations
-        generation_text = font.render(f"Générations: {generations}", True, BLACK)
+        generation_text = font.render(f"G: {generations}", True, BLACK)
         window.blit(generation_text, (WIDTH + 10, 50))
+
+        # Afficher la légende de T et de G
+        generation_text = font.render(f"LEGENDE", True, BLACK)
+        window.blit(generation_text, (WIDTH + 40, 100))
+        generation_text = font.render(f"T = Temps", True, BLACK)
+        window.blit(generation_text, (WIDTH + 10, 140))
+        generation_text = font.render(f"G = Générations", True, BLACK)
+        window.blit(generation_text, (WIDTH + 10, 180))
 
         pygame.display.flip()
         clock.tick(5)
