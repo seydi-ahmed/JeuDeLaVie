@@ -55,3 +55,8 @@ Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonc
 - **Numéro de téléphone:** +221776221681
 - **LinkedIn:** https://www.linkedin.com/in/mouhamed-diouf-435207174/
 - **Github:** https://github.com/seydi-ahmed
+
+## TUTOS YOUTUBE SUIVIS:
+- **ScienceEtonnante:** https://www.youtube.com/watch?v=S-W0NX97DB0&t=238s
+- **Rational Animations:** https://www.youtube.com/watch?v=C2vgICfQawE
+- **Numberphile:** https://www.youtube.com/watch?v=R9Plq-D1gEk
