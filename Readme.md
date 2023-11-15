@@ -19,7 +19,7 @@ Le Jeu de la Vie est un automate cellulaire créé par le mathématicien John Co
         b) Pygame: pip install pygame
     2) Ubuntu:
         ```
-        a) Python: les distributions de Ubuntu viennent avec pyton préinstallé
+        a) Python: les distributions de Ubuntu viennent avec python préinstallé
         Installer les dépendances:
         sudo apt-get update
         sudo apt-get install python3-dev python3-pip
@@ -66,6 +66,14 @@ Block, Bee-hive, loaf, boat, Tub, Blinker(period 2), Toad(period 2), Beacon(peri
 Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonction>"
 ```
 
+### Taille de la grille:
+Juste aprés avoir importé les modules à utiliser vous avez les dimensions de la grille avec:
+```
+WIDTH, HEIGHT = 800, 800
+ROWS, COLS = 40, 40
+```
+Augmentez ou diminuez la grille selon vos préférences
+
 ## Coordonnées du développeur:
 - **Prénom Nom:** Mouhamed Diouf
 - **Ecole:** Zone01 Dakar
@@ -73,6 +81,7 @@ Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonc
 - **Numéro de téléphone:** +221776221681
 - **LinkedIn:** https://www.linkedin.com/in/mouhamed-diouf-435207174/
 - **Github:** https://github.com/seydi-ahmed
+- **Twitter:** https://twitter.com/SeydiAhmed007
 
 ## TUTOS YOUTUBE SUIVIS:
 - **ScienceEtonnante:** https://www.youtube.com/watch?v=S-W0NX97DB0&t=238s

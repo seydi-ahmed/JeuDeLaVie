@@ -14,13 +14,15 @@ GRAY = (200, 200, 200)
 
 ########################### INITIALISATION DEBUT ###########################
 
+# Utilisez une initialisation en commentant les deux autres
+
 # Initialisation de la grille avec quelques cellules vivantes manuellement
 # grid = np.zeros((ROWS, COLS))
 # grid[2, 3:6] = 1
 # grid[4, 2:5] = 1
 # grid[5, 4] = 1
 
-# Utilisez une des fonctions d'initialisation du module tours
+# Initialisation avec zéro cases noires. A vous de définir votre début de jeu
 # grid = np.zeros((ROWS, COLS))
 
 # Initialisation de la grille avec quelques cellules vivantes au hasard
