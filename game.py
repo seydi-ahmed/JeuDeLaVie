@@ -5,7 +5,7 @@ from tours import *
 
 # Dimensions de la grille
 WIDTH, HEIGHT = 800, 800 # la taille de la grille principale
-ROWS, COLS = 40, 40 # les cellules à l'intérieur
+ROWS, COLS = 40, 40 # la taille des cellules à l'intérieur
 
 # Couleurs
 WHITE = (255, 255, 255)
