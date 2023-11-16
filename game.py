@@ -48,41 +48,70 @@ def update_grid(grid):
 
 # Fonction principale pour exécuter le Jeu de la Vie
 def run_game():
-    global grid
-    pygame.init()
-    window = pygame.display.set_mode((WIDTH + 200, HEIGHT))
+    # Déclarer la variable globale "grid"
+    global grid 
+    
+    # Initialiser le module pygame
+    pygame.init() 
+
+    # Créer une fenêtre graphique avec une largeur augmentée de 200 pixels
+    window = pygame.display.set_mode((WIDTH + 200, HEIGHT)) 
+
+    # Définir le titre de la fenêtre
     pygame.display.set_caption("Jeu de la Vie - John Conway")
 
+    # Créer un objet Clock pour contrôler la vitesse du jeu
     clock = pygame.time.Clock()
 
+    # Créer un objet Font pour afficher du texte avec une taille de police de 36
     font = pygame.font.Font(None, 36)
+
+    # Initialiser la variable qui stocke le moment où le timer a commencé
     timer_start = None
+
+    # Initialiser la variable qui stocke le temps écoulé pendant les pauses
     paused_time = 0
+
+    # Initialiser la variable qui compte le nombre de générations
     generations = 0
 
+    # Initialiser la variable qui contrôle si le jeu est en cours d'exécution
     running = True
-    paused = True  # Démarrez en mode pause
+
+    # Initialiser la variable qui contrôle si le jeu est en pause
+    paused = True
+
+    # Initialiser la variable qui contrôle si le bouton de la souris est enfoncé
     mouse_pressed = False
 
+    # Boucle principale du jeu
     while running:
+        # Remplit la fenêtre avec la couleur blanche
         window.fill(WHITE)
 
+        # Gestion des événements
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
             elif event.type == pygame.KEYDOWN:
+                # Gestion de la touche Espace pour mettre en pause ou reprendre le jeu
                 if event.key == pygame.K_SPACE:
                     if paused:
+                        # Si le jeu est en pause, enregistre le moment de la reprise
                         timer_start = time.time() - paused_time
                     else:
+                        # Si le jeu reprend, enregistre le temps écoulé pendant la pause
                         paused_time = time.time() - timer_start
+                    # Inverse l'état de la pause
                     paused = not paused
 
             elif event.type == pygame.MOUSEBUTTONDOWN:
+                # Gestion du clic de la souris pour changer l'état des cellules
                 mouse_pressed = True
             elif event.type == pygame.MOUSEBUTTONUP:
                 mouse_pressed = False
 
+        # Met à jour la grille si le jeu n'est pas en pause
         if not paused:
             grid = update_grid(grid)
             generations += 1
@@ -130,9 +159,12 @@ def run_game():
         generation_text = font.render(f"G = Générations", True, BLACK)
         window.blit(generation_text, (WIDTH + 10, 180))
 
+        # Met à jour l'affichage
         pygame.display.flip()
+        # Contrôle la vitesse du jeu
         clock.tick(5)
 
+    # Quitte le jeu lorsque la boucle se termine
     pygame.quit()
 
 if __name__ == "__main__":
