@@ -69,9 +69,8 @@ Pour les utiliser on a juste à appeler la fonction avec "grid = <nom_de_la_fonc
 ### Taille de la grille:
 Juste aprés avoir importé les modules à utiliser vous avez les dimensions de la grille avec:
 ```
-# Dimensions de la grille
-WIDTH, HEIGHT = 800, 800
-ROWS, COLS = 40, 40
+WIDTH, HEIGHT = 800, 800 (la taille de la grille principale)
+ROWS, COLS = 40, 40 (les cellules à l'intérieur)
 ```
 Augmentez ou diminuez la grille selon vos préférences
 
