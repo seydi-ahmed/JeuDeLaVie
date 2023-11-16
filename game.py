@@ -15,6 +15,8 @@ GRAY = (200, 200, 200)
 ########################### INITIALISATION DEBUT ###########################
 
 # Utilisez une initialisation en commentant les deux autres
+# donner 1 à une cellule veut dire qu'elle est vivante
+# donner 0 à une cellule veut dire qu'elle est morte
 
 # Initialisation de la grille avec quelques cellules vivantes manuellement
 # grid = np.zeros((ROWS, COLS))
@@ -35,12 +37,12 @@ def update_grid(grid):
     new_grid = grid.copy() # Copier la grille pour ne pas toucher à celle du jeu
     for i in range(ROWS): # Parcourir les lignes
         for j in range(COLS): # Parcourir les colonnes
-            total_neighbors = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j] # Stocker les voisins en excluant la cellule elle-même
+            voisins = np.sum(grid[i-1:i+2, j-1:j+2]) - grid[i, j] # Stocker les voisins en excluant la cellule elle-même
             if grid[i, j] == 1: # Cellule vivante avec moins de 2 ou plus de 3 voisins meurent
-                if total_neighbors < 2 or total_neighbors > 3:
+                if voisins < 2 or voisins > 3:
                     new_grid[i, j] = 0
             else: # Cellule morte avec 3 voisins prend vie
-                if total_neighbors == 3:
+                if voisins == 3:
                     new_grid[i, j] = 1
     return new_grid
 
